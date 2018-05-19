@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input id="getdate" type="date"/>
+    <input type="button" value="确认选择" onclick="pageinit()">
+    <div id="container">
+
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>    
+    function pageinit()
+    {
+        
+        var getdate=$("#getdate").val().split('-');
+        var d=getdate[0].substring(2,4)+getdate[1]+getdate[2];
+        $.ajax({
+            url: 'base/'+d+'.json',  
+            async:false,
+            success: function (data) {                
+                data=JSON.parse(data.replace(/'/g,"\""));
+                basedata=data;
+            },
+            error: function (a,b,c) {
+                console.log(a);
+                console.log(b);
+                console.log(c);
+
+            },
+            dataType: 'text'
+        });
+        $.ajax({
+            url: 'op/'+d+'.json',  
+            async:false,         
+            success: function (data) {                
+                data=JSON.parse(data.replace(/'/g,"\""));
+                opdata=data;
+            },
+            error: function (a,b,c) {
+                console.log(a);
+                console.log(b);
+                console.log(c);
+
+            },
+            dataType: 'text'
+        });
+        for(var item in basedata.raceList)
+        {
+            var id=basedata.raceList[item].fixId;
+            var output='<p>场次:'+item+"【";
+            output+=basedata.raceList[item].homeTeam+"(主场)";
+            output+=basedata.raceList[item].wholeScore;
+            output+=basedata.raceList[item].guestTeam+"(客场)";
+            output+="】</p>";
+            $("#container").append(output);
+
+            var plobject=opdata[id].avgOdds;
+
+            //初始
+            var fwin=Number(plobject.fwin);
+            var fdrow=Number(plobject.fdrow);
+            var flose=Number(plobject.flose);
+
+            //最终
+            var win=Number(plobject.win);
+            var drow=Number(plobject.drow);
+            var lose=Number(plobject.lose);
+
+            var total=win+drow+lose;
+            var ftotal=fwin+fdrow+flose;
+
+            var a1=fwin/ftotal-win/total;
+            var a2=fdrow/ftotal-drow/total;
+            var a3=flose/ftotal-lose/total;
+
+            var r=Math.min(a1,a2,a3);
+            var result="";
+            if(r==a1){
+                result="胜";
+            }
+            else if(r==a2)
+            {
+                result="平";
+            }
+            else{
+                result="负";
+            }
+
+            var pl="<p>初始："
+            pl+=fwin+"|"+fdrow+"|"+flose;
+            pl+="</p>";
+            pl+="<p>最终："
+            pl+=win+"|"+drow+"|"+lose;
+            pl+="</p>";
+            pl+="<p>计算结果："
+            pl+=a1+"|"+a2+"|"+a3;
+            pl+="</p>";
+            pl+="<p style='color:red'>"+result+"</p>";
+            $("#container").append(pl);
+        }
+        
+    }  
+    var basedata;
+    var opdata;  
+        // $.ajax({
+        //     url: 'base/180511.json',  
+        //     async:false,
+        //     success: function (data) {                
+        //         data=JSON.parse(data.replace(/'/g,"\""));
+        //         basedata=data;
+        //     },
+        //     error: function (a,b,c) {
+        //         console.log(a);
+        //         console.log(b);
+        //         console.log(c);
+
+        //     },
+        //     dataType: 'text'
+        // });
+        // $.ajax({
+        //     url: 'op/180511.json',   
+        //     async:false,         
+        //     success: function (data) {                
+        //         data=JSON.parse(data.replace(/'/g,"\""));
+        //         opdata=data;
+        //     },
+        //     error: function (a,b,c) {
+        //         console.log(a);
+        //         console.log(b);
+        //         console.log(c);
+
+        //     },
+        //     dataType: 'text'
+        // });
+
+        
+    </script>
+</body>
+
+</html>
