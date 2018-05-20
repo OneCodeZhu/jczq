@@ -1,0 +1,49 @@
+"<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
+<html xmlns=""http://www.w3.org/1999/xhtml"">
+<head>
+<meta http-equiv=""Content-Type"" content=""text/html; charset=utf-8"" />
+<title>您访问的页面正在升级中！</title>
+<link href=""/error/css/global.css"" type=""text/css"" rel=""stylesheet"" />
+<style type=""text/css"">
+.logo { float:left; margin:15px 0 0 25px;}
+.move_box { width:960px; height:490px; margin:50px auto 0; background:url(/error/images/move_bg.jpg) 0 0 no-repeat; position:relative;}
+.move_info { margin:125px 0 0 525px; width:327px; float:left; display:inline; position: relative; z-index: 10; }
+.move_info h3 { width:273px; height:23px; text-indent:-9999px; margin-bottom:5px; background:url(/error/images/ymwfz.gif) 0 0 no-repeat;}
+.move_info .set_width { width:300px; margin-top:10px;}
+.move_info p {line-height:25px; height:25px;}
+.move_info p .kf_btn_online { display:inline-block; width:81px; height:24px; vertical-align:middle; margin-right:10px; background:url(/error/images/kf_btn.gif) 0 0 no-repeat;}
+.move_info p .kf_btn_online:hover { background-position:0 -24px;}
+.move_info p strong { font-size:14px; color:#000; padding-left:20px;}
+.wf_notices { width:327px; height:50px; margin:10px 0; line-height:48px; background:url(/error/images/ymwfz.gif) 0 bottom no-repeat; text-indent:65px;}
+.abs_rt_pic { position:absolute; right:0; bottom:0; width:250px; height:259px; background:url(/error/images/404.gif) 0 0 no-repeat;}
+.footer { width:960px; margin:10px auto 0; color:#999;}
+.footer p { line-height:22px; text-align:center;}
+</style>
+</head>
+
+<body>
+
+<div class=""move_box"">
+	<a href=""http://www.aicai.com""><img class=""logo"" src=""/error/images/acLogo150_40.png"" alt=""新浪爱彩"" /></a>
+	<div class=""move_info"">
+    	<strong>该页面迷失中，暂无法打开。</strong>
+        <div class=""wf_notices"">我们正在紧急优化，给您带来的不便深表歉意！</div>	
+    	建议您：
+		<p style=""margin-top:5px;"">
+			1.刷新该页面；<br>
+			2.清理浏览器缓存：点击浏览器工具-Internet选项-浏览历史记录-删除，完成后点击保存并重新打开浏览器尝试；<br>
+			3.联系客服咨询：<a class=""kf_btn_online"" href=""http://faq.aicai.com/self-service/"" target=""_blank""></a>客服热线:400-6688-848<br>
+			<a href=""javascript:history.go(-1);"">返回上一页</a>&nbsp;&nbsp;  或者&nbsp;&nbsp;  <a href=""http://www.aicai.com"">进入新浪爱彩首页</a>
+		</p>
+       
+    </div>
+    <div class=""abs_rt_pic""></div>
+</div>
+<div class=""footer"">
+	<p>2006-2014 &copy; 深圳市中网彩网络技术有限公司  ICP证：粤ICP备08016846号 增值电信业务经营许可证：粤B2-20060345</p>
+    <p>新浪爱彩提醒：购买彩票有风险，在线投注需谨慎，不向未满18周岁的青少年出售彩票！</p>
+</div>
+
+</body>
+</html>
+"
