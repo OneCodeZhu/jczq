@@ -18,7 +18,7 @@
     <script>    
     function pageinit()
     {
-        
+        $("#container").html("");
         var getdate=$("#getdate").val().split('-');
         var d=getdate[0].substring(2,4)+getdate[1]+getdate[2];
         $.ajax({
