@@ -54,7 +54,8 @@
         for(var item in basedata.raceList)
         {
             var id=basedata.raceList[item].fixId;
-            var output='<p>场次:'+item+"【";
+            var lianasai=basedata.raceList[item].matchName;
+            var output='<p>'+lianasai+'场次:'+item+"【";
             output+=basedata.raceList[item].homeTeam+"(主场)";
             output+=basedata.raceList[item].wholeScore;
             output+=basedata.raceList[item].guestTeam+"(客场)";
