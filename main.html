@@ -11,11 +11,17 @@
 <body>
     <input id="getdate" type="date"/>
     <input type="button" value="确认选择" onclick="pageinit()">
+    <select id="suanfa">
+        <option value="1" selected="selected">算法1</option>
+        <option value="2">算法2</option>
+    </select>
     <div id="container">
 
     </div>
     <script src="js/jquery.js"></script>
     <script>    
+    var basedata;
+    var opdata;        
     function pageinit()
     {
         $("#container").html("");
@@ -51,10 +57,27 @@
             },
             dataType: 'text'
         });
+
+        var optionvalue=$("#suanfa").val();
+        switch(optionvalue)
+        {
+            case "1":suanfa1();break;
+            case "2":suanfa2;break;
+            default:alert('developping...');break;
+        }
+        
+        
+    }
+
+    function suanfa1()
+    {
+        $("#container").append("<p>算法简介：客不败</p>");
+        //provided by wjy
         for(var item in basedata.raceList)
         {
             var id=basedata.raceList[item].fixId;
-            var output='<p>场次:'+item+"【";
+            var lianasai=basedata.raceList[item].matchName;
+            var output='<p>'+lianasai+'场次:'+item+"【";
             output+=basedata.raceList[item].homeTeam+"(主场)";
             output+=basedata.raceList[item].wholeScore;
             output+=basedata.raceList[item].guestTeam+"(客场)";
@@ -94,53 +117,28 @@
             }
 
             var pl="<p>初始："
-            pl+=fwin+"|"+fdrow+"|"+flose;
+            pl+=fwin+"⭐"+fdrow+"⭐"+flose;
             pl+="</p>";
             pl+="<p>最终："
-            pl+=win+"|"+drow+"|"+lose;
+            pl+=win+"⭐"+drow+"⭐"+lose;
             pl+="</p>";
             pl+="<p>计算结果："
-            pl+=a1+"|"+a2+"|"+a3;
+            pl+=a1+"⭐"+a2+"⭐"+a3;
             pl+="</p>";
             pl+="<p style='color:red'>"+result+"</p>";
             $("#container").append(pl);
         }
-        
-    }  
-    var basedata;
-    var opdata;  
-        // $.ajax({
-        //     url: 'base/180511.json',  
-        //     async:false,
-        //     success: function (data) {                
-        //         data=JSON.parse(data.replace(/'/g,"\""));
-        //         basedata=data;
-        //     },
-        //     error: function (a,b,c) {
-        //         console.log(a);
-        //         console.log(b);
-        //         console.log(c);
+    } 
 
-        //     },
-        //     dataType: 'text'
-        // });
-        // $.ajax({
-        //     url: 'op/180511.json',   
-        //     async:false,         
-        //     success: function (data) {                
-        //         data=JSON.parse(data.replace(/'/g,"\""));
-        //         opdata=data;
-        //     },
-        //     error: function (a,b,c) {
-        //         console.log(a);
-        //         console.log(b);
-        //         console.log(c);
+    function suanfa2(){
+        $("#container").append("<p>算法简介：tlysb</p>");
+        //provided by wjy
+        for(var item in basedata.raceList)
+        {
 
-        //     },
-        //     dataType: 'text'
-        // });
-
-        
+        }
+    } 
+    
     </script>
 </body>
 
