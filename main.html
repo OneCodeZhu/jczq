@@ -28,7 +28,7 @@
         var getdate=$("#getdate").val().split('-');
         var d=getdate[0].substring(2,4)+getdate[1]+getdate[2];
         $.ajax({
-            url: 'base/'+d+'.json',  
+            url: 'base/'+d+'.json',
             async:false,
             success: function (data) {                
                 data=JSON.parse(data.replace(/'/g,"\""));
@@ -43,7 +43,7 @@
             dataType: 'text'
         });
         $.ajax({
-            url: 'op/'+d+'.json',  
+            url: 'op/'+d+'.json',            
             async:false,         
             success: function (data) {                
                 data=JSON.parse(data.replace(/'/g,"\""));
